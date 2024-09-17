@@ -18,3 +18,9 @@
     @apply font-manrope text-light-2 leading-relaxed font-normal;
   }
 }
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    width: 0;
+  }
+}

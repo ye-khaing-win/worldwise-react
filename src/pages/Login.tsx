@@ -1,4 +1,6 @@
-import styles from "./Login.module.css";
+import { useState } from "react";
+import Input from "../components/Input";
+import PageNav from "../components/PageNav";
 
 export default function Login() {
   // PRE-FILL FOR DEV PURPOSES
@@ -6,11 +8,17 @@ export default function Login() {
   const [password, setPassword] = useState("qwerty");
 
   return (
-    <main className={styles.login}>
-      <form className={styles.form}>
-        <div className={styles.row}>
-          <label htmlFor="email">Email address</label>
-          <input
+    <main className="m-10 py-10 p-20 bg-dark-1 h-hero">
+      <PageNav />
+      <form className="bg-dark-2 rounded-lg py-8 px-12 w-[48rem] flex flex-col gap-8 my-32 mx-auto">
+        <div className="flex flex-col gap-2">
+          <label
+            className="text-2xl font-semibold"
+            htmlFor="email"
+          >
+            Email address
+          </label>
+          <Input
             type="email"
             id="email"
             onChange={(e) => setEmail(e.target.value)}
@@ -18,9 +26,14 @@ export default function Login() {
           />
         </div>
 
-        <div className={styles.row}>
-          <label htmlFor="password">Password</label>
-          <input
+        <div className="flex flex-col gap-2">
+          <label
+            className="text-2xl font-semibold"
+            htmlFor="password"
+          >
+            Password
+          </label>
+          <Input
             type="password"
             id="password"
             onChange={(e) => setPassword(e.target.value)}

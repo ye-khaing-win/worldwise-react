@@ -5,10 +5,14 @@ export default {
     extend: {
       height: {
         hero: "calc(100vh - 5rem)",
+        sidebar: "calc(100vh - 4.8rem)",
       },
+
       backgroundImage: {
         hero: () =>
           'linear-gradient(rgba(36, 42, 46, 0.8),rgba(36, 42, 46, 0.8)),url("../bg.jpg")',
+        spinner: () =>
+          "conic-gradient(#0000 10%, var(--color-light--2))",
       },
       fontFamily: {
         manrope: ["Manrope", "sans-serif"],
