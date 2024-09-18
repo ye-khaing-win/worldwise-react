@@ -6,7 +6,11 @@ const AppNav = () => {
       <ul className="list-none flex bg-dark-2 rounded-[7px]">
         <li>
           <NavLink
-            className="block text-inherit no-underline uppercase text-xl font-bold py-2 px-8 rounded-[5px] active:bg-dark-0"
+            className={({ isActive }) =>
+              `block text-inherit no-underline uppercase text-xl font-bold py-2 px-8 rounded-[5px] ${
+                isActive ? "bg-dark-0" : ""
+              }`
+            }
             to="cities"
           >
             Cities
@@ -14,7 +18,11 @@ const AppNav = () => {
         </li>
         <li>
           <NavLink
-            className="block text-inherit no-underline uppercase text-xl font-bold py-2 px-8 rounded-[5px] active:bg-dark-0"
+            className={({ isActive }) =>
+              `block text-inherit no-underline uppercase text-xl font-bold py-2 px-8 rounded-[5px] ${
+                isActive ? "bg-dark-0" : ""
+              }`
+            }
             to="countries"
           >
             Countries

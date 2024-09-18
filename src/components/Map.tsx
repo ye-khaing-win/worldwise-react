@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 const Map = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="flex-1 h-full bg-dark-2 relative">
+    <div
+      onClick={() => navigate("form")}
+      className="flex-1 h-full bg-dark-2 relative"
+    >
       Map
     </div>
   );
