@@ -1,15 +1,10 @@
-import { City } from "../interfaces";
+import { useCities } from "../hooks/useCities";
 import CountryItem from "./CountryItem";
 import Message from "./Message";
 import Spinner from "./Spinner";
 
-interface CountryListProps {
-  cities: City[];
-  isLoading: boolean;
-}
-
-const CountryList = (props: CountryListProps) => {
-  const { cities, isLoading } = props;
+const CountryList = () => {
+  const { cities, isLoading } = useCities();
 
   if (isLoading) return <Spinner />;
 
