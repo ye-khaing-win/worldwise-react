@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
 import { City } from "../interfaces";
-
-const formatDate = (date: string) =>
-  new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    weekday: "long",
-  }).format(new Date(date));
+import { formatDate } from "../utils/helpers";
 
 interface CityItemProps {
   city: City;
