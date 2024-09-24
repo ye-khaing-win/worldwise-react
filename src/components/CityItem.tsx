@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { City } from "../interfaces";
 import { formatDate } from "../utils/helpers";
+import { useCities } from "../hooks/useCities";
+import classNames from "classnames";
 
 interface CityItemProps {
   city: City;
@@ -9,10 +11,21 @@ interface CityItemProps {
 const CityItem = (props: CityItemProps) => {
   const { city } = props;
   const { emoji, cityName, date, id, position } = city;
+
+  const { currentCity } = useCities();
+
+  const classes = classNames(
+    "flex gap-6 items-center bg-dark-2 rounded-lg py-4 px-8 border-l-4 border-l-brand-2 cursor-pointer text-inherit",
+    {
+      "border-2 border-brand-2 border-solid border-l-4":
+        currentCity.id === city.id,
+    }
+  );
+
   return (
     <li>
       <Link
-        className="flex gap-6 items-center bg-dark-2 rounded-lg py-4 px-8 border-l-4 border-l-brand-2 cursor-pointer text-inherit"
+        className={classes}
         to={`${id}?lat=${position.lat}&lng=${position.lng}`}
       >
         <span className="text-4xl">{emoji}</span>

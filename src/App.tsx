@@ -14,6 +14,7 @@ import CityList from "./components/CityList";
 import CountryList from "./components/CountryList";
 import City from "./components/City";
 import { CitiesProvider } from "./contexts/CitiesContext";
+import Form from "./components/Form";
 
 const App = () => {
   return (
@@ -35,7 +36,7 @@ const App = () => {
               path="countries"
               element={<CountryList />}
             />
-            <Route path="form" element={<p>Form</p>} />
+            <Route path="form" element={<Form />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

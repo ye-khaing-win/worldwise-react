@@ -13,6 +13,7 @@ interface CityContextType {
   isLoading: boolean;
   currentCity: Partial<City>;
   getCity: (id: number) => void;
+  addCity: (newCity: City) => void;
 }
 
 interface CitiesProviderProps {
@@ -58,7 +59,31 @@ export const CitiesProvider = ({
       const res = await fetch(`${BASE_URL}/cities/${id}`);
       const data = (await res.json()) as unknown as City;
 
+      console.log(`${BASE_URL}/cities/${id}`);
+
       setCurrentCity(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const addCity = async (newCity: City) => {
+    try {
+      setIsLoading(true);
+
+      const res = await fetch(`${BASE_URL}/cities`, {
+        method: "POST",
+        body: JSON.stringify(newCity),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = (await res.json()) as unknown as City;
+
+      setCities([...cities, data]);
     } catch (error) {
       console.error(error);
     } finally {
@@ -68,7 +93,13 @@ export const CitiesProvider = ({
 
   return (
     <CitiesContext.Provider
-      value={{ cities, isLoading, currentCity, getCity }}
+      value={{
+        cities,
+        isLoading,
+        currentCity,
+        getCity,
+        addCity,
+      }}
     >
       {children}
     </CitiesContext.Provider>

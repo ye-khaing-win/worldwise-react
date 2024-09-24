@@ -1,8 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useCities } from "../hooks/useCities";
 import { useEffect } from "react";
 import Row from "./Row";
 import { formatDate } from "../utils/helpers";
+import Button from "./Button";
+import Spinner from "./Spinner";
 
 type CityParams = {
   id: string;
@@ -11,12 +13,17 @@ type CityParams = {
 const City = () => {
   const { id } = useParams<CityParams>();
   const { currentCity, getCity, isLoading } = useCities();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    getCity(Number(id));
+    const fetch = async () => {
+      getCity(Number(id));
+    };
+
+    fetch();
   }, [id]);
 
-  if (isLoading) return <div></div>;
+  if (isLoading) return <Spinner />;
 
   const { emoji, cityName, date, notes } = currentCity;
 
@@ -60,6 +67,12 @@ const City = () => {
           Check out {cityName} on Wikipedia &rarr;
         </a>
       </Row>
+
+      <div>
+        <Button type="back" onClick={() => navigate(-1)}>
+          Back
+        </Button>
+      </div>
     </div>
   );
 };
