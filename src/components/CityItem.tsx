@@ -12,7 +12,7 @@ const CityItem = (props: CityItemProps) => {
   const { city } = props;
   const { emoji, cityName, date, id, position } = city;
 
-  const { currentCity } = useCities();
+  const { currentCity, deleteCity } = useCities();
 
   const classes = classNames(
     "flex gap-6 items-center bg-dark-2 rounded-lg py-4 px-8 border-l-4 border-l-brand-2 cursor-pointer text-inherit",
@@ -21,6 +21,16 @@ const CityItem = (props: CityItemProps) => {
         currentCity.id === city.id,
     }
   );
+
+  const handleClick = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    e.preventDefault();
+
+    if (!city.id) return;
+
+    deleteCity(city.id);
+  };
 
   return (
     <li>
@@ -35,7 +45,10 @@ const CityItem = (props: CityItemProps) => {
         <time className="text-2xl">
           ({formatDate(date)})
         </time>
-        <button className="h-8 aspect-square rounded-[50%] border-none bg-dark-1 text-light-2 text-2xl font-semibold cursor-pointer transition-all duration-200 hover:bg-brand-1 hover:text-dark-1">
+        <button
+          onClick={handleClick}
+          className="h-8 aspect-square rounded-[50%] border-none bg-dark-1 text-light-2 text-2xl font-semibold cursor-pointer transition-all duration-200 hover:bg-brand-1 hover:text-dark-1"
+        >
           &times;
         </button>
       </Link>

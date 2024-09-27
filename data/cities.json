@@ -49,75 +49,39 @@
       "id": "98443198"
     },
     {
-      "id": "4416",
-      "cityName": "Kuala Lumpur",
-      "country": "Malaysia",
-      "emoji": "🇲🇾",
-      "date": "2024-09-24T09:59:32.973Z",
+      "id": "a7ef",
+      "cityName": "Lewe",
+      "country": "Myanmar",
+      "emoji": "🇲🇲",
+      "date": "2024-09-25T14:19:14.429Z",
       "notes": "",
       "position": {
-        "lat": 3.155256707004993,
-        "lng": 101.69769287109376
+        "lat": 19.63146248948719,
+        "lng": 96.10970281939488
       }
     },
     {
-      "id": "0157",
-      "cityName": "Nyaung-U",
+      "id": "c60d",
+      "cityName": "Laukkaing",
       "country": "Myanmar",
       "emoji": "🇲🇲",
-      "date": "2024-09-24T10:00:56.195Z",
+      "date": "2024-09-25T14:19:43.453Z",
       "notes": "",
       "position": {
-        "lat": 21.207458730482653,
-        "lng": 94.96702150990447
+        "lat": 23.687760786452447,
+        "lng": 98.76559369151136
       }
     },
     {
-      "id": "06b1",
-      "cityName": "Pakokku",
+      "id": "20b1",
+      "cityName": "Nawnghkio",
       "country": "Myanmar",
       "emoji": "🇲🇲",
-      "date": "2024-09-24T10:01:05.276Z",
+      "date": "2024-09-25T14:33:18.401Z",
       "notes": "",
       "position": {
-        "lat": 21.34054846908118,
-        "lng": 95.12512207031251
-      }
-    },
-    {
-      "id": "4c1e",
-      "cityName": "Nyaunglebin",
-      "country": "Myanmar",
-      "emoji": "🇲🇲",
-      "date": "2024-09-24T10:01:55.608Z",
-      "notes": "",
-      "position": {
-        "lat": 17.95162664401485,
-        "lng": 96.72723770141603
-      }
-    },
-    {
-      "id": "9661",
-      "cityName": "Hmawbi",
-      "country": "Myanmar",
-      "emoji": "🇲🇲",
-      "date": "2024-09-24T10:03:09.089Z",
-      "notes": "",
-      "position": {
-        "lat": 17.096823341565187,
-        "lng": 96.04110717773439
-      }
-    },
-    {
-      "id": "d6c8",
-      "cityName": "Thanbyuzayat",
-      "country": "Myanmar",
-      "emoji": "🇲🇲",
-      "date": "2024-09-24T10:05:57.973Z",
-      "notes": "",
-      "position": {
-        "lat": 15.961329081596647,
-        "lng": 97.8057861328125
+        "lat": 22.328411982401715,
+        "lng": 96.80150070586733
       }
     }
   ]

@@ -1,4 +1,6 @@
-export const formatDate = (date: string | undefined) => {
+export const formatDate = (
+  date: string | undefined | Date
+) => {
   if (!date) return "";
   return new Intl.DateTimeFormat("en", {
     day: "numeric",

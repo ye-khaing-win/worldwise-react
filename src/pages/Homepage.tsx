@@ -20,7 +20,7 @@ const Homepage = () => {
         </h2>
         <Link
           className="inline-block bg-brand-2 text-dark-1 uppercase text-2xl font-semibold py-4 px-12 rounded-md"
-          to="/app"
+          to="/login"
         >
           Start tracking now
         </Link>

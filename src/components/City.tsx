@@ -17,7 +17,8 @@ const City = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      getCity(Number(id));
+      if (!id) return;
+      await getCity(id);
     };
 
     fetch();

@@ -16,6 +16,7 @@ import Message from "./Message";
 import Spinner from "./Spinner";
 import DatePicker from "react-datepicker";
 import { useCities } from "../hooks/useCities";
+import classNames from "classnames";
 
 const Form = () => {
   const { addCity, isLoading: isCityLoading } = useCities();
@@ -53,7 +54,8 @@ const Form = () => {
         setCountry(data.countryName);
         setEmoji(convertToEmoji(data.countryCode));
       } catch (err) {
-        setError(err.message);
+        const error = err as Error;
+        setError(error.message);
       } finally {
         setIsLoading(false);
       }
@@ -95,16 +97,18 @@ const Form = () => {
       },
     };
 
-    addCity(newCity);
+    await addCity(newCity);
 
     navigate("/app");
   };
 
+  const formClasses = classNames(
+    "bg-dark-2 rounded-lg py-8 px-12 w-full flex flex-col gap-8",
+    { "opacity-30": isCityLoading }
+  );
+
   return (
-    <form
-      className="bg-dark-2 rounded-lg py-8 px-12 w-full flex flex-col gap-8"
-      onSubmit={handleSubmit}
-    >
+    <form className={formClasses} onSubmit={handleSubmit}>
       <Row>
         <label htmlFor="cityName">City name</label>
         <Input
@@ -146,7 +150,9 @@ const Form = () => {
       </Row>
 
       <div className="flex justify-between">
-        <Button type="primary">Add</Button>
+        <Button isLoading={isCityLoading} type="primary">
+          Add
+        </Button>
         <Button
           onClick={(e) => {
             e.preventDefault();
