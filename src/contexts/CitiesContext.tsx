@@ -1,6 +1,7 @@
 import {
   createContext,
   ReactNode,
+  useCallback,
   useEffect,
   useReducer,
 } from "react";
@@ -159,14 +160,12 @@ export const CitiesProvider = ({
     fetchCities();
   }, []);
 
-  const getCity = async (id: string) => {
+  const getCity = useCallback(async (id: string) => {
     try {
       dispatch({ type: ActionType.LOAD });
 
       const res = await fetch(`${BASE_URL}/cities/${id}`);
       const data = (await res.json()) as unknown as City;
-
-      console.log(data);
 
       dispatch({
         type: ActionType.GET_CITY,
@@ -178,7 +177,7 @@ export const CitiesProvider = ({
         payload: error as Error,
       });
     }
-  };
+  }, []);
 
   const addCity = async (newCity: City) => {
     try {

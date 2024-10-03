@@ -22,7 +22,7 @@ const City = () => {
     };
 
     fetch();
-  }, [id]);
+  }, [id, getCity]);
 
   if (isLoading) return <Spinner />;
 
